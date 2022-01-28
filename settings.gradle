@@ -1,4 +1,4 @@
 rootProject.name = 'demo'
 include 'src'
-include 'entities'
-include 'entities'
+include 'com.entities'
+include 'com.entities'
