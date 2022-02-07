@@ -4,7 +4,9 @@ import com.RFDSpring.entities.Account;
 import com.RFDSpring.services.AccountService;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@RestControllerc
 @RequestMapping("/api")
 public class AccountController {
     private AccountService accountService;
@@ -15,9 +17,9 @@ public class AccountController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/accounts/{accountID}")
-    public Account getAccount(@PathVariable String accountID){
-        return this.accountService.findById(accountID);
+    @GetMapping("/accounts/{owner}")
+    public List<Account> getAccounts(@PathVariable String owner){
+        return this.accountService.findByowner(owner);
     }
 
     @PostMapping("/accounts")

@@ -1,20 +1,27 @@
 package com.RFDSpring.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Account {
     public Account() {
     }
 
-    public Account(ArrayList<Transaction> transactions, String owner, String accountNum) {
-        Transactions = transactions;
+    public Long getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(Long accountID) {
+        this.accountID = accountID;
+    }
+
+    public Account(ArrayList<Transaction> transactions, String owner, long balance, String type) {
+        transactions = transactions;
         this.owner = owner;
-        AccountNum = accountNum;
+        this.balance = balance;
+        this.type=type;
+
     }
 
     public ArrayList<Transaction> getTransactions() {
@@ -33,20 +40,31 @@ public class Account {
         this.owner = owner;
     }
 
-    public String getAccountNum() {
-        return AccountNum;
-    }
-
-    public void setAccountNum(String accountNum) {
-        AccountNum = accountNum;
-    }
 
     @Id
     @Column(name = "accountID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long accountID;
     private ArrayList<Transaction> Transactions;
     private String owner;
-    private String AccountNum;
+    private long balance;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public long getBalance() {
+        return balance;
+    }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 
     public Long getId() {
         return accountID;

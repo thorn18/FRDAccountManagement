@@ -24,6 +24,16 @@ public class UserService {
 
     }
 
+    public User login(String username, String password) {
+        User user =  userRepository.findByUsername(username);
+        System.out.println(user.username + "   +  " + user.password);
+        if (password.equals(user.getPassword())) {
+            return user;
+        } else {
+            throw new RuntimeException("Username or Password does not match records");
+        }
+    }
+
     public User updateUser(User newUser) {
         return userRepository.save(newUser);
     }

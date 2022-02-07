@@ -8,5 +8,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     public User getById(Integer userID);
 
-    public User save(User entity);
+    public <S extends User> S save(S entity);
 }

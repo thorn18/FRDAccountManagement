@@ -9,13 +9,13 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int userID;
-    String username;
-    String password;
-    String role;
-    String address;
-    String email;
-    String dob;
+    public int userID;
+    public String username;
+    public String password;
+    public String role;
+    public String address;
+    public String email;
+    public String dob;
 
     public User(int userID, String username, String password, String role, String address, String email, String dob) {
         this.userID = userID;
@@ -24,6 +24,38 @@ public class User {
         this.role = role;
         this.address = address;
         this.email = email;
+        this.dob = dob;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
